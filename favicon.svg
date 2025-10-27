@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs>
+    <style>
+      .s{ fill:none; stroke:#1367d1; stroke-width:10; stroke-linecap:round; stroke-linejoin:round; }
+      .f{ fill:#1367d1; }
+    </style>
+  </defs>
+  <!-- Left foot outline with face -->
+  <path class="s" d="M20 76c0-22 16-40 36-40s36 18 36 40-16 36-36 36-36-14-36-36z"/>
+  <!-- Toes -->
+  <circle class="s" cx="44" cy="30" r="8"/>
+  <circle class="s" cx="60" cy="24" r="8"/>
+  <circle class="s" cx="76" cy="28" r="8"/>
+  <circle class="s" cx="88" cy="38" r="8"/>
+  <!-- Smile face -->
+  <circle class="f" cx="52" cy="78" r="5"/>
+  <circle class="f" cx="72" cy="78" r="5"/>
+  <path class="s" d="M46 92c10 8 26 8 36 0"/>
+</svg>
