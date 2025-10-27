@@ -1,4 +1,4 @@
-# ComfortCare Website (Static)
+# ComfortCare Reflexology
 
 A simple, fast, **single‑page** static website for a massage spa. Bilingual (中文/EN), includes **services**, **pricing**, **booking (phone + email intent)**, **locations**, and **SEO tags**.
 
