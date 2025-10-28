@@ -1,0 +1,139 @@
+{
+  "brand": "Comfort Care Reflexology",
+  "primary_email": "comfortcarereflexology@gmail.com",
+  "social": {
+    "facebook": "",
+    "instagram": ""
+  },
+  "locations": [
+    {
+      "id": "eastvale",
+      "name": "Eastvale",
+      "address": "14244 Schleisman Rd Ste 110, Eastvale, CA 92880",
+      "phone": "951-520-1996",
+      "map": "https://maps.google.com/?q=14244+SchleisMan+Rd+Ste+110+Eastvale+CA+92880",
+      "hours": "Mon–Sun 10:00–22:00",
+      "yelp": "https://www.yelp.com/biz/comfort-care-reflexology-eastvale"
+    },
+    {
+      "id": "norco",
+      "name": "Norco",
+      "address": "2420 River Rd Ste 220, Norco, CA 92860",
+      "phone": "951-268-6189",
+      "map": "https://maps.google.com/?q=2420+River+Rd+Ste+220+Norco+CA+92860",
+      "hours": "Mon–Sun 10:00–22:00",
+      "yelp": "https://www.yelp.com/biz/comfort-care-reflexology-norco-4",
+      "google_review": "https://g.page/r/Ce1ubAYk93O4EAI/review"
+    }
+  ],
+  "services": [
+    {
+      "id": "table",
+      "title": "Table Massage (Hot Oil & Hot Stones, Private Room)",
+      "desc": "Relaxing full‑body table massage with hot oil and hot stones.",
+      "durations": [
+        {
+          "label": "30 min",
+          "price": 40
+        },
+        {
+          "label": "60 min",
+          "price": 50
+        },
+        {
+          "label": "90 min",
+          "price": 75
+        },
+        {
+          "label": "120 min",
+          "price": 100
+        }
+      ]
+    },
+    {
+      "id": "deep",
+      "title": "Deep Tissue Massage",
+      "desc": "Focused pressure to relieve muscle tension and knots.",
+      "durations": [
+        {
+          "label": "60 min",
+          "price": 60
+        },
+        {
+          "label": "90 min",
+          "price": 90
+        },
+        {
+          "label": "120 min",
+          "price": 120
+        }
+      ]
+    },
+    {
+      "id": "targeted",
+      "title": "Targeted Massage (Head, Neck, Back & Shoulders)",
+      "desc": "Concentrated work for specific areas of tension.",
+      "durations": [
+        {
+          "label": "60 min",
+          "price": 60
+        }
+      ]
+    },
+    {
+      "id": "combo",
+      "title": "Combo Massage (Foot + Back with Hot Stones)",
+      "desc": "30 min foot & 30 min back (60) • 45 min foot & 45 min back (90).",
+      "durations": [
+        {
+          "label": "60 min",
+          "price": 50
+        },
+        {
+          "label": "90 min",
+          "price": 70
+        }
+      ]
+    },
+    {
+      "id": "foot",
+      "title": "Foot Massage (Includes Hot Water Foot Bath)",
+      "desc": "45 min foot + 15 min back.",
+      "durations": [
+        {
+          "label": "60 min",
+          "price": 45
+        }
+      ]
+    },
+    {
+      "id": "chair",
+      "title": "Chair Massage (Head, Neck, Shoulders & Back)",
+      "desc": "Quick, effective relaxation without changing clothes.",
+      "durations": [
+        {
+          "label": "30 min",
+          "price": 40
+        }
+      ]
+    }
+  ],
+  "addons": [
+    {
+      "label": "Essential Oil",
+      "price": 15
+    },
+    {
+      "label": "Sea Salt Foot & Leg Scrub",
+      "price": 5
+    },
+    {
+      "label": "Medicine",
+      "price": 10
+    },
+    {
+      "label": "Deep Tissue Upgrade",
+      "price": 10
+    }
+  ]
+}

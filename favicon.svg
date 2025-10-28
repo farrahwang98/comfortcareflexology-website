@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <defs><style>.s{fill:none;stroke:#1367d1;stroke-width:10;stroke-linecap:round;stroke-linejoin:round}.f{fill:#1367d1}</style></defs>
+  <path class="s" d="M22 76c0-22 16-40 36-40s36 18 36 40-16 36-36 36-36-14-36-36z"/>
+  <circle class="s" cx="46" cy="30" r="8"/><circle class="s" cx="62" cy="24" r="8"/><circle class="s" cx="78" cy="28" r="8"/><circle class="s" cx="90" cy="38" r="8"/>
+  <circle class="f" cx="54" cy="78" r="5"/><circle class="f" cx="74" cy="78" r="5"/>
+  <path class="s" d="M48 92c10 8 26 8 36 0"/>
+</svg>
