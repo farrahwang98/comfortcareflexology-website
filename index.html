@@ -2,113 +2,316 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Comfort Care Reflexology</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link rel="icon" href="favicon.png" type="image/png">
+
+  <!-- Tailwind (CDN) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Cute Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;800&family=Fredoka:wght@500;700&display=swap" rel="stylesheet">
+
+  <!-- Cute Theme -->
+  <style>
+    :root{
+      --mint:#DFF7EC;        /* soft mint bg */
+      --mint-strong:#17A673; /* primary */
+      --peach:#FFE7EC;       /* peach accent */
+      --lemon:#FFF8D7;       /* lemon sticker */
+      --ink:#183046;         /* main text */
+      --ink-soft:#5B6B79;    /* secondary text */
+      --card-shadow:0 8px 30px rgba(14,125,98,0.08);
+      --radius:22px;         /* global radius */
+    }
+    html,body{ font-family:'Nunito',system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif; color:var(--ink); }
+    h1,h2,h3{ font-family:'Fredoka','Nunito',sans-serif; letter-spacing:.2px; }
+
+    /* soft paper background */
+    body{
+      background:
+        radial-gradient(1200px 500px at 10% -10%, var(--mint) 0%, transparent 60%),
+        radial-gradient(900px 400px at 100% 0%, var(--peach) 0%, transparent 65%),
+        #fff;
+    }
+
+    /* Cards & stickers */
+    .cc-card{ background:#fff; border-radius:var(--radius); box-shadow:var(--card-shadow); }
+    .cc-pop{ transition:transform .18s ease, box-shadow .18s ease; }
+    .cc-pop:hover{ transform:translateY(-2px); box-shadow:0 12px 34px rgba(14,125,98,0.12); }
+    .cc-sticker{ display:inline-flex; align-items:center; gap:.5rem; padding:.35rem .75rem;
+                 border-radius:999px; background:var(--lemon); color:#7A6B00; font-weight:700; font-size:.9rem; }
+
+    /* Candy Buttons */
+    .cc-btn{ display:inline-flex; align-items:center; justify-content:center; gap:.5rem;
+             padding:.7rem 1.1rem; border-radius:999px; font-weight:700; transition:.18s ease; }
+    .cc-btn-primary{ background:var(--mint-strong); color:#fff; box-shadow:0 6px 16px rgba(23,166,115,.25); }
+    .cc-btn-primary:hover{ transform:translateY(-1px) scale(1.01); box-shadow:0 10px 24px rgba(23,166,115,.28); }
+    .cc-btn-ghost{ background:#fff; color:var(--mint-strong); border:2px solid rgba(23,166,115,.15); }
+    .cc-btn-ghost:hover{ background:var(--mint); }
+
+    /* Title underline candy */
+    .cc-title{ position:relative; display:inline-block; }
+    .cc-title:after{ content:""; position:absolute; left:8px; right:8px; bottom:-6px; height:10px;
+                     background:linear-gradient(90deg, var(--peach), var(--mint)); border-radius:12px; opacity:.55; }
+
+    /* Open/Closed Badge */
+    .cc-badge{ padding:.25rem .6rem; border-radius:999px; font-weight:700; font-size:.8rem; }
+    .cc-open{ background:#E6F8EE; color:#087A55; }
+    .cc-closed{ background:#FFF0F1; color:#B72A45; }
+
+    /* tiny floating animation (optional) */
+    @keyframes floaty{ 0%{transform:translateY(0)} 50%{transform:translateY(-4px)} 100%{transform:translateY(0)} }
+    .floaty{ animation: floaty 4s ease-in-out infinite; }
+  </style>
 </head>
 
-<body class="bg-gray-50 text-gray-800">
+<body class="text-gray-900 bg-white" id="top">
   <!-- Header -->
-  <header class="bg-emerald-700 text-white py-6 text-center shadow-md">
-    <h1 class="text-3xl font-bold">Comfort Care Reflexology</h1>
-    <p class="text-sm mt-1">Relax • Heal • Refresh</p>
+  <header class="sticky top-0 z-40 backdrop-blur bg-white/75 border-b">
+    <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="w-9 h-9 rounded-xl bg-white shadow-sm grid place-items-center">🦶</span>
+        <a href="#top" class="font-extrabold text-xl tracking-tight">Comfort Care Reflexology</a>
+        <span id="openBadge" class="cc-badge cc-open hidden">Open now</span>
+        <span id="closedBadge" class="cc-badge cc-closed hidden">Closed</span>
+      </div>
+      <nav class="hidden md:flex items-center gap-6 text-sm">
+        <a href="#services" class="hover:underline">Services</a>
+        <a href="#pricing" class="hover:underline">Pricing</a>
+        <a href="#booking" class="hover:underline">Booking</a>
+        <a href="#contact" class="hover:underline">Contact</a>
+      </nav>
+      <a href="#booking" class="cc-btn cc-btn-primary">💚 Book Now</a>
+    </div>
   </header>
 
-  <!-- Hero Section -->
-  <section class="max-w-4xl mx-auto px-4 mt-8 text-center">
-    <img src="logo.png" alt="Comfort Care Logo" class="mx-auto w-28 h-28 mb-4" />
-    <p class="text-lg text-gray-700">
-      Experience professional massage therapy designed to relieve tension, reduce stress, and promote whole-body wellness.
-    </p>
+  <!-- Hero -->
+  <section class="relative overflow-hidden">
+    <div class="absolute inset-0" style="background:linear-gradient(180deg, rgba(223,247,236,.8), rgba(255,255,255,1));"></div>
+    <div class="max-w-6xl mx-auto px-4 py-20 relative">
+      <span class="cc-sticker">✨ Relax & Rejuvenate</span>
+      <h1 class="mt-4 text-5xl md:text-6xl font-extrabold tracking-tight">Comfort Care Reflexology</h1>
+      <p class="mt-4 text-lg text-gray-600">
+        Professional team • Two convenient locations. Foot, table, deep tissue, combo and more to help you de-stress and recharge.
+      </p>
+      <div class="mt-7 flex flex-wrap gap-3">
+        <a href="#booking" class="cc-btn cc-btn-primary">💌 Book Now</a>
+        <a href="#pricing" class="cc-btn cc-btn-ghost">🍑 See Pricing</a>
+      </div>
+    </div>
   </section>
 
-  <!-- Services & Price List -->
-  <section class="max-w-4xl mx-auto px-4 mt-12">
-    <h2 class="text-2xl font-semibold text-emerald-700 text-center mb-4">Massage Services & Prices</h2>
-    <div class="bg-white shadow-md rounded-xl p-6">
-      <ul class="space-y-2 text-gray-700">
-        <li><strong>Table Massage:</strong> 30min $40 • 60min $50 • 90min $75 • 120min $100</li>
-        <li><strong>Deep Tissue Massage:</strong> 60min $60 • 90min $90 • 120min $120</li>
-        <li><strong>Targeted Massage:</strong> 60min $60 • 90min $90 • 120min $120 (head, neck, back, shoulders)</li>
-        <li><strong>Combo Massage:</strong> 60min $50 (30min foot + 30min back w/ stones) • 90min $70 • 120min $100</li>
-        <li><strong>Foot Massage:</strong> 60min $45 (45min foot + 15min back)</li>
-        <li><strong>Chair Massage:</strong> 30min $40 (head, neck, shoulders, back)</li>
+  <!-- Services -->
+  <section id="services" class="max-w-6xl mx-auto px-4 py-16">
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight cc-title">🫧 Services</h2>
+      <p class="mt-1 text-sm text-gray-500">Ask front desk for preferences or therapist requests.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="cc-card cc-pop p-5">
+        <div class="text-emerald-700 font-semibold text-lg mb-1">Table Massage (Hot Oil & Hot Stones, Private Room)</div>
+        <ul class="text-sm text-gray-700 space-y-1">
+          <li>30 min — <b>$40</b></li>
+          <li>60 min — <b>$50</b></li>
+          <li>90 min — <b>$75</b></li>
+          <li>120 min — <b>$100</b></li>
+        </ul>
+      </div>
+
+      <div class="cc-card cc-pop p-5">
+        <div class="text-emerald-700 font-semibold text-lg mb-1">Deep Tissue Massage</div>
+        <ul class="text-sm text-gray-700 space-y-1">
+          <li>60 min — <b>$60</b></li>
+          <li>90 min — <b>$90</b></li>
+          <li>120 min — <b>$120</b></li>
+        </ul>
+      </div>
+
+      <div class="cc-card cc-pop p-5">
+        <div class="text-emerald-700 font-semibold text-lg mb-1">Targeted Massage (Head, Neck, Back & Shoulders)</div>
+        <p class="text-sm text-gray-500 mb-2">Focused relief for common tension areas.</p>
+        <p class="text-sm">60 min — <b>$60</b></p>
+      </div>
+
+      <div class="cc-card cc-pop p-5">
+        <div class="text-emerald-700 font-semibold text-lg mb-1">Combo Massage</div>
+        <ul class="text-sm text-gray-700 space-y-1">
+          <li>60 min — <b>$50</b> (30 min foot + 30 min back with hot stones)</li>
+          <li>90 min — <b>$70</b></li>
+        </ul>
+      </div>
+
+      <div class="cc-card cc-pop p-5">
+        <div class="text-emerald-700 font-semibold text-lg mb-1">Foot Massage</div>
+        <p class="text-sm">60 min — <b>$45</b> (45 min foot + 15 min back)</p>
+      </div>
+
+      <div class="cc-card cc-pop p-5">
+        <div class="text-emerald-700 font-semibold text-lg mb-1">Chair Massage</div>
+        <p class="text-sm">30 min — <b>$40</b> (head, neck, shoulders & back)</p>
+      </div>
+    </div>
+
+    <div class="mt-6 cc-card cc-pop p-5">
+      <h3 class="font-semibold">Add-ons</h3>
+      <ul class="text-sm text-gray-700 list-disc ml-6 mt-2 space-y-1">
+        <li>Essential Oil + <b>$15</b></li>
+        <li>Sea Salt Foot Scrub + <b>$5</b></li>
+        <li>Herbal Medicine + <b>$10</b></li>
+        <li>Deep Tissue Upgrade + <b>$10</b></li>
       </ul>
-
-      <div class="mt-4">
-        <p class="text-sm text-gray-600">Add-ons:</p>
-        <ul class="text-sm text-gray-700 list-disc ml-6">
-          <li>Essential Oil + $15</li>
-          <li>Sea Salt Foot Scrub + $5</li>
-          <li>Herbal Medicine + $10</li>
-          <li>Deep Tissue Upgrade + $10</li>
-        </ul>
-        <p class="text-xs text-gray-500 mt-2">* Get 5 stamps from these services and your next visit is $10 off!</p>
-      </div>
+      <p class="text-xs text-gray-500 mt-3">* Get 5 stamps from these services and your next visit is $10 off.</p>
     </div>
   </section>
 
-  <!-- Booking Section -->
-  <section class="max-w-4xl mx-auto px-4 mt-12">
-    <div class="bg-white shadow-md rounded-xl p-6">
-      <h2 class="text-2xl font-semibold text-emerald-700 text-center mb-2">Online Booking</h2>
-      <p class="text-sm text-gray-500 text-center">
-        Submit your booking request below — we’ll call to confirm your appointment.<br>
-        You’ll also receive an automatic confirmation email after submission.
-      </p>
+  <!-- Pricing (quick recap) -->
+  <section id="pricing" class="max-w-6xl mx-auto px-4 pb-4">
+    <div class="text-center max-w-3xl mx-auto mb-8">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight cc-title">🍃 Pricing</h2>
+      <p class="text-sm text-gray-500">Prices may vary by holiday/promotion. In-store price prevails.</p>
+    </div>
+  </section>
 
-      <div class="mt-4">
-        <iframe 
-          src="https://docs.google.com/forms/d/e/1FAIpQLSckM6ANsybFQEbgKHoOfSi3VhstcZHeuOvJZULec7iJdXQzBw/viewform?embedded=true"
-          width="100%"
-          height="1000"
-          frameborder="0"
-          marginheight="0"
-          marginwidth="0">
-          Loading…
-        </iframe>
+  <!-- Booking -->
+  <section id="booking" class="max-w-6xl mx-auto px-4 py-10">
+    <div class="grid lg:grid-cols-2 gap-8">
+      <!-- Phone Booking -->
+      <div class="cc-card cc-pop p-6">
+        <h3 class="text-xl font-semibold mb-1">📞 Phone Booking (Recommended)</h3>
+        <p class="text-sm text-gray-500">Choose a location and call to confirm quickly.</p>
+        <div class="mt-4 space-y-4">
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border rounded-xl p-4">
+            <div>
+              <div class="font-medium">📍 Eastvale</div>
+              <div class="text-sm text-gray-500">14244 Schleisman Rd Ste 110, Eastvale, CA 92880</div>
+              <div class="text-xs text-gray-500">Hours: Mon–Sat 10:00–9:30 · Sun 11:00–9:30</div>
+            </div>
+            <div class="flex gap-2 flex-wrap">
+              <a href="tel:9515201996" class="cc-btn cc-btn-primary">📞 (951) 520-1996</a>
+              <a href="https://maps.google.com/?q=14244+Schleisman+Rd+Ste+110,+Eastvale,+CA+92880" target="_blank" class="cc-btn cc-btn-ghost">🗺 Map</a>
+              <a href="https://www.yelp.com/biz/comfort-care-reflexology-eastvale" target="_blank" class="cc-btn cc-btn-ghost">🍓 Yelp</a>
+            </div>
+          </div>
+
+          <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 border rounded-xl p-4">
+            <div>
+              <div class="font-medium">📍 Norco</div>
+              <div class="text-sm text-gray-500">2420 River Rd Ste 220, Norco, CA 92860</div>
+              <div class="text-xs text-gray-500">Hours: Mon–Sat 10:00–9:30 · Sun 11:00–9:30</div>
+            </div>
+            <div class="flex gap-2 flex-wrap">
+              <a href="tel:9512686189" class="cc-btn cc-btn-primary">📞 (951) 268-6189</a>
+              <a href="https://maps.google.com/?q=2420+River+Rd+Ste+220,+Norco,+CA+92860" target="_blank" class="cc-btn cc-btn-ghost">🗺 Map</a>
+              <a href="https://www.yelp.com/biz/comfort-care-reflexology-norco-4" target="_blank" class="cc-btn cc-btn-ghost">🍓 Yelp</a>
+              <a href="https://g.page/r/Ce1ubAYk93O4EAI/review" target="_blank" class="cc-btn cc-btn-ghost">⭐ Google</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-6 cc-card p-4 bg-amber-50 border border-amber-200">
+          <h4 class="font-semibold text-amber-800">🕒 Business Hours</h4>
+          <ul class="text-sm text-gray-700 mt-2 space-y-1">
+            <li><b>Mon – Sat:</b> 10:00 AM – 9:30 PM</li>
+            <li><b>Sun:</b> 11:00 AM – 9:30 PM</li>
+          </ul>
+          <p class="text-sm text-gray-600 mt-3">
+            <em>📌 Note:</em> The last full appointment can be scheduled at <b>8:45 PM</b>.
+            For appointments starting after <b>9:00 PM</b>, only <b>30-minute</b> sessions are available.
+          </p>
+        </div>
       </div>
 
-      <div class="mt-6 bg-amber-50 border border-amber-200 rounded-xl p-4">
-        <h3 class="font-semibold text-amber-800">🕒 Business Hours</h3>
-        <ul class="text-sm text-gray-700 mt-2 space-y-1">
-          <li><strong>Monday – Saturday:</strong> 10:00 AM – 9:30 PM</li>
-          <li><strong>Sunday:</strong> 11:00 AM – 9:30 PM</li>
-        </ul>
-        <p class="text-sm text-gray-600 mt-3">
-          <em>📌 Please note:</em> The last full appointment can be scheduled at 
-          <strong>8:45 PM</strong>. Appointments after <strong>9:00 PM</strong> are limited to 30 minutes.
+      <!-- Google Form Embed (auto email + on-page confirm via Google) -->
+      <div class="cc-card cc-pop p-6">
+        <h3 class="text-xl font-semibold mb-1">💌 Online Booking</h3>
+        <p class="text-sm text-gray-500">
+          Submit your booking request below — you’ll receive an automatic confirmation email.
+          We’ll call to confirm your appointment time.
         </p>
+        <div class="mt-4">
+          <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLSckM6ANsybFQEbgKHoOfSi3VhstcZHeuOvJZULec7iJdXQzBw/viewform?embedded=true"
+            width="100%" height="1000" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+        </div>
+        <p class="text-xs text-gray-500 mt-3">If you need urgent assistance, please call us directly.</p>
       </div>
-
-      <p class="text-xs text-gray-500 mt-3 text-center">
-        For urgent bookings, please call us directly:<br>
-        📍 Eastvale: (951) 520-1996  | 📍 Norco: (951) 268-6189
-      </p>
     </div>
   </section>
 
-  <!-- Reviews Section -->
-  <section class="max-w-4xl mx-auto px-4 mt-12 mb-12">
-    <div class="bg-white shadow-md rounded-xl p-6 text-center">
-      <h2 class="text-2xl font-semibold text-emerald-700 mb-2">Reviews</h2>
+  <!-- Contact -->
+  <section id="contact" class="max-w-6xl mx-auto px-4 pb-16">
+    <div class="cc-card cc-pop p-6">
+      <h3 class="text-lg font-semibold">📞 Contact</h3>
+      <p class="text-sm text-gray-500">We recommend booking by phone to reserve your preferred therapist.</p>
+      <div class="grid md:grid-cols-2 gap-6 mt-4">
+        <div>
+          <div class="font-medium">📍 Eastvale</div>
+          <div class="text-sm text-gray-500">14244 Schleisman Rd Ste 110, Eastvale, CA 92880</div>
+          <a href="tel:9515201996" class="text-sm text-emerald-700 hover:underline">📞 (951) 520-1996</a>
+        </div>
+        <div>
+          <div class="font-medium">📍 Norco</div>
+          <div class="text-sm text-gray-500">2420 River Rd Ste 220, Norco, CA 92860</div>
+          <a href="tel:9512686189" class="text-sm text-emerald-700 hover:underline">📞 (951) 268-6189</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reviews -->
+  <section class="max-w-6xl mx-auto px-4 pb-16">
+    <div class="cc-card cc-pop p-6 text-center">
+      <h2 class="text-3xl md:text-4xl font-bold tracking-tight cc-title mb-2">⭐ Reviews</h2>
       <p class="text-sm text-gray-600 mb-4">Love our service? Leave us a review!</p>
       <div class="flex flex-col sm:flex-row gap-3 justify-center">
-        <a href="https://www.yelp.com/biz/comfort-care-reflexology-eastvale" target="_blank"
-          class="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-full text-sm">Yelp (Eastvale)</a>
-        <a href="https://www.yelp.com/biz/comfort-care-reflexology-norco-4" target="_blank"
-          class="bg-red-500 hover:bg-red-600 text-white px-5 py-2 rounded-full text-sm">Yelp (Norco)</a>
-        <a href="https://g.page/r/Ce1ubAYk93O4EAI/review" target="_blank"
-          class="bg-green-600 hover:bg-green-700 text-white px-5 py-2 rounded-full text-sm">Google Review (Norco)</a>
+        <a href="https://www.yelp.com/biz/comfort-care-reflexology-eastvale" target="_blank" class="cc-btn cc-btn-ghost">🍓 Yelp (Eastvale)</a>
+        <a href="https://www.yelp.com/biz/comfort-care-reflexology-norco-4" target="_blank" class="cc-btn cc-btn-ghost">🍓 Yelp (Norco)</a>
+        <a href="https://g.page/r/Ce1ubAYk93O4EAI/review" target="_blank" class="cc-btn cc-btn-ghost">⭐ Google Review (Norco)</a>
       </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-emerald-700 text-white py-4 text-center text-sm">
-    <p>© 2025 Comfort Care Reflexology. All Rights Reserved.</p>
-    <p>📧 comfortcarereflexology@gmail.com</p>
+  <footer class="bg-white border-t">
+    <div class="max-w-6xl mx-auto px-4 py-8 grid md:grid-cols-3 gap-8 text-sm">
+      <div>
+        <h3 class="font-semibold text-lg">Comfort Care Reflexology</h3>
+        <p class="text-gray-600 mt-1">Relax • Heal • Refresh</p>
+      </div>
+      <div>
+        <h4 class="font-medium">Hours</h4>
+        <p class="text-gray-600 mt-1">Mon–Sat 10:00 AM – 9:30 PM · Sun 11:00 AM – 9:30 PM</p>
+        <p class="text-gray-500 text-xs mt-1">Last full appointment at 8:45 PM. After 9:00 PM: 30-minute sessions only.</p>
+      </div>
+      <div>
+        <h4 class="font-medium">Contact</h4>
+        <p class="text-gray-600 mt-1">📧 comfortcarereflexology@gmail.com</p>
+      </div>
+    </div>
+    <p class="text-center text-xs text-gray-500 pb-8">© <span id="year"></span> Comfort Care Reflexology. All rights reserved.</p>
   </footer>
+
+  <!-- Open/Closed Badge Script -->
+  <script>
+    (function(){
+      const openEl = document.getElementById('openBadge');
+      const closeEl = document.getElementById('closedBadge');
+      const now = new Date();
+      const dow = now.getDay(); // Sun=0 ... Sat=6
+      const mins = (h,m)=> h*60+m;
+      const cur = mins(now.getHours(), now.getMinutes());
+
+      // default Mon–Sat 10:00–21:30 ; Sun 11:00–21:30
+      let start = mins(10,0), end = mins(21,30);
+      if(dow === 0){ start = mins(11,0); end = mins(21,30); }
+
+      const isOpen = cur >= start && cur <= end;
+      (isOpen ? openEl : closeEl).classList.remove('hidden');
+
+      // Footer year
+      document.getElementById('year').textContent = new Date().getFullYear();
+    })();
+  </script>
 </body>
 </html>
